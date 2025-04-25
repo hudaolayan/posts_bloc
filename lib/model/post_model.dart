@@ -5,14 +5,14 @@ class PostModel {
   String? body;
   bool? isLoading;
 
-  PostModel({this.userId, this.id, this.title, this.body,this.isLoading});
+  PostModel({this.userId, this.id, this.title, this.body, this.isLoading});
 
   PostModel.fromJson({required Map<String, dynamic> json}) {
     userId = json['userId'];
     id = json['id'];
     title = json['title'];
     body = json['body'];
-    isLoading=false;
+    isLoading = false;
   }
 
   Map<String, dynamic> toJson() {

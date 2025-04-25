@@ -12,10 +12,10 @@ class ListScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(title: Text("Posts"),),
       body: BlocBuilder<GetAllPostsCubit, GetAllPostsState>(
         builder: (context, state) {
-          if (state is GetAllPostStateLoading) {
+          if (state is GetAllPostsStateLoading) {
             return Center(child: CircularProgressIndicator());
           } else if (state is GetAllPostsStateSuccess) {
             return RefreshIndicator(

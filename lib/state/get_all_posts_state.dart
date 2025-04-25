@@ -4,7 +4,7 @@ abstract class GetAllPostsState{}
 
 class GetAllPostsInitial extends GetAllPostsState{}
 
-class GetAllPostStateLoading extends GetAllPostsState{}
+class GetAllPostsStateLoading extends GetAllPostsState{}
 
 class GetAllPostsStateSuccess extends GetAllPostsState {
   final List<PostModel> posts;

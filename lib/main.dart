@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:posts_bloc/cubit/create_post_cubit.dart';
 import 'package:posts_bloc/cubit/delete_post_cubit.dart';
 import 'package:posts_bloc/cubit/get_all_posts_cubit.dart';
+import 'package:posts_bloc/cubit/get_post_comments_cubit.dart';
 import 'package:posts_bloc/cubit/update_post_cubit.dart';
 import 'package:posts_bloc/view/screen/list_screen.dart';
 
@@ -22,6 +23,7 @@ class MyApp extends StatelessWidget {
         BlocProvider(create: (context) => CreatePostCubit()),
         BlocProvider(create: (context) => UpdatePostCubit()),
         BlocProvider(create: (context) => DeletePostCubit()),
+        BlocProvider(create: (context) => GetPostCommentsCubit()),
       ],
       child: MaterialApp(
         title: 'Flutter Demo',

@@ -11,7 +11,7 @@ class GetAllPostsCubit extends Cubit<GetAllPostsState> {
   GetAllPostsCubit() : super(GetAllPostsInitial());
 
   getAllPosts() async {
-    emit(GetAllPostStateLoading());
+    emit(GetAllPostsStateLoading());
     final response = await http.get(Uri.parse("${ConstValues.baseUrl}posts"));
     if (response.statusCode == 200) {
       var jsonBody = jsonDecode(response.body);
@@ -27,7 +27,7 @@ class GetAllPostsCubit extends Cubit<GetAllPostsState> {
 
   addPost({required PostModel postModel}) {
     var currentState = state;
-    emit(GetAllPostStateLoading());
+    emit(GetAllPostsStateLoading());
     if (currentState is GetAllPostsStateSuccess) {
       currentState.posts.insert(0, postModel);
       emit(GetAllPostsStateSuccess(posts: currentState.posts));
@@ -36,7 +36,7 @@ class GetAllPostsCubit extends Cubit<GetAllPostsState> {
 
   updatePost({required PostModel postModel, required int index}) {
     var currentState = state;
-    emit(GetAllPostStateLoading());
+    emit(GetAllPostsStateLoading());
     if (currentState is GetAllPostsStateSuccess) {
       currentState.posts[index] = postModel;
       emit(GetAllPostsStateSuccess(posts: currentState.posts));
@@ -45,7 +45,7 @@ class GetAllPostsCubit extends Cubit<GetAllPostsState> {
 
   updateLoading({required int index}) {
     var currentState = state;
-    emit(GetAllPostStateLoading());
+    emit(GetAllPostsStateLoading());
     if (currentState is GetAllPostsStateSuccess) {
       currentState.posts[index].isLoading = true;
       emit(GetAllPostsStateSuccess(posts: currentState.posts));
@@ -54,7 +54,7 @@ class GetAllPostsCubit extends Cubit<GetAllPostsState> {
 
   deletePost({required int index}) {
     var currentState = state;
-    emit(GetAllPostStateLoading());
+    emit(GetAllPostsStateLoading());
     if (currentState is GetAllPostsStateSuccess) {
       currentState.posts.removeAt(index);
       emit(GetAllPostsStateSuccess(posts: currentState.posts));
