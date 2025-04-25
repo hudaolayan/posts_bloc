@@ -11,7 +11,6 @@ class GetPostCommentsCubit extends Cubit<GetPostCommentsState> {
   GetPostCommentsCubit() : super(GetPostCommentsStateInitial());
 
   fetchCommentsForPost(int postId) async {
-    print("loading comments.....");
     emit(GetPostCommentsStateLoading());
     final response = await http.get(
       Uri.parse("${ConstValues.baseUrl}posts/$postId/comments"),
@@ -23,10 +22,8 @@ class GetPostCommentsCubit extends Cubit<GetPostCommentsState> {
         comments.add(CommentModel.fromJson(json: element));
       }
       emit(GetPostCommentsStateSuccess(comments: comments));
-      print(comments.toString());
     } else {
       emit(GetPostCommentsStateError(message: "Something went wrong"));
-      print("not ok errorrrrrr");
     }
   }
 }

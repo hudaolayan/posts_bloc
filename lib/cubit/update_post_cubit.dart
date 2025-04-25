@@ -44,14 +44,12 @@ class UpdatePostCubit extends Cubit<UpdatePostState> {
     );
 
     if (response.statusCode == 200) {
-      print("resulttttt "+response.body.toString());
       emit(
         UpdatePostStateSuccess(
           postModel: PostModel.fromJson(json: jsonDecode(response.body)),
         ),
       );
     } else {
-      print("error resultttt"+response.toString());
       emit(UpdatePostStateError(message: "Something wont wrong"));
     }
   }
